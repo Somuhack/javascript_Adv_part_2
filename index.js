@@ -252,11 +252,11 @@ var a;
 //         console.log("a is ",a);}
 //         break
 // }
-let a;
+// let a;
 
-console.log(a);
-a=10
-console.log(a);
+// console.log(a);
+// a=10
+// console.log(a);
 
 
 // p()
@@ -274,9 +274,53 @@ console.log(a);
 //     }
 // } 
 // new abc("Somnath")
-let arr=[1,2,3,4,5,6,7,8,9,10]
+// let arr=[1,2,3,4,5,6,7,8,9,10]
 
-let all = arr.filter((item)=>item%2==0   
-)
-console.log(all);
+// let all = arr.filter((item)=>item%2==0   
+// )
+// console.log(all);
+// function abc(a){
+//   if(a>5){
+//     return a;
+//   }
 
+//   console.log(a);
+  
+//   return abc(a + 1);
+// }
+// abc(1)
+
+// const x = (a, b) => {
+//   return a + b;
+// };
+
+// const a =(s,f,cb)=>
+//     cb(s,f)
+
+// console.log(a(1,2,x));
+function Propose(){ //this is server service
+   return new Promise((resolve,reject)=>{
+      setTimeout(()=> reject("sorry bhi"),1000)
+      
+   })
+   
+}
+// Propose().then((data)=>console.log("resolve : ",data)
+// ).catch((err)=>console.log("reject : ",err))
+// const CallPromise = async() =>{
+//      const data = await Propose()
+//      return data
+// }
+const CallPromise = async() =>{
+     try {
+       const data = await Propose()
+     return data
+     } catch (error) {
+      return error
+     } 
+}
+(async()=>{
+  const res = await CallPromise()
+  console.log(res);
+  
+})();
