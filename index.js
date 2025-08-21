@@ -298,29 +298,95 @@ var a;
 //     cb(s,f)
 
 // console.log(a(1,2,x));
-function Propose(){ //this is server service
-   return new Promise((resolve,reject)=>{
-      setTimeout(()=> reject("sorry bhi"),1000)
-      
-   })
+// function Propose(){ //this is server service
+//    return new Promise(()=>{
+//     return new Promise((resolve,reject)=>{
+//         setTimeout(()=>{
+//             const data = "Hello Bhi Log"
+//             resolve(data)
+//             // reject("Error Occured")
+//         },2000)
+//     })
+//    })
    
-}
+// }
 // Propose().then((data)=>console.log("resolve : ",data)
 // ).catch((err)=>console.log("reject : ",err))
 // const CallPromise = async() =>{
 //      const data = await Propose()
 //      return data
 // }
-const CallPromise = async() =>{
-     try {
-       const data = await Propose()
-     return data
-     } catch (error) {
-      return error
-     } 
-}
-(async()=>{
-  const res = await CallPromise()
-  console.log(res);
+// const CallPromise = async() =>{
+//      try {
+//        const data = await Propose()
+//      return data
+//      } catch (error) {
+//       return error
+//      } 
+// }
+// (async()=>{
+//   const res = await CallPromise()
+//   console.log(res);
   
-})();
+// })();
+const GetApicall= async ()=>{
+  const res = await fetch("http://localhost:4000/api/v1/user/getall-user",{method:"GET"}) //POST GET PUT DELETE (USINg to Buuild REST API)
+  const data = await res.json()
+  console.log(data);
+}
+const PostApiCall = async () => {
+  const res = await fetch("http://localhost:4000/api/v1/user/add-user", {
+    method: "POST",
+     headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name: 'Somnath Dhara',
+      email: 'svu@gmail.com',
+      password: '123456',
+      phone: '1234567890',
+      address: 'India',
+    }),
+  });
+   const data = await res.json()
+   console.log(data.msg);
+   console.log(data.data && data.data);
+   
+}
+const PutApiCall = async () => {
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos/1", {
+    method: "PUT",
+     headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      title: "Somnath DAS",
+      body: "bar",
+      useId: 1,
+    }),
+  });
+  console.log(res.json());
+  
+}
+const DeleteApiCall = async () =>{
+  const res = await fetch("http://localhost:4000/api/v1/user/delete-user/689d83441b880859bd305646", {
+    method: "DELETE",
+     headers: {
+      "Content-Type": "application/json",
+    },
+  });
+const data = await res.json()
+  console.log(data.msg);
+  // if (res.ok) {
+  //   console.log("Data deleted successfully");
+  // } else {
+  //   console.error("Error deleting data:", data);
+  // }
+ console.log();
+ 
+}
+GetApicall()
+// PostApiCall()
+// PutApiCall()
+// DeleteApiCall()
+

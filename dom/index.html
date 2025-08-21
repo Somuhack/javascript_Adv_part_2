@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="myh1">Welcome Somnath</p>
+    <button id="btn">dark</button>
+    <script>
+        const myobj = document.getElementById("myh1")
+        const mybtn = document.getElementById("btn")
+        const body = document.body
+        
+        mybtn.addEventListener("click", function () {
+           if(body.style.backgroundColor ==="black"){
+             body.style.backgroundColor = "white";
+             myobj.style.color = "black";
+             mybtn.innerText ="dark";
+           }else{
+             body.style.backgroundColor = "black";
+             myobj.style.color = "white";
+             mybtn.innerText ="light";
+           }
+        })
+    </script>
+</body>
+
+</html>
