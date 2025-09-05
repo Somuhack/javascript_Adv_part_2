@@ -27,11 +27,16 @@
 // export default App
 import Home from './pages/Home'
 import React from 'react'
+import Nshm from "./assets/images.png"
+import MyhooksReducer from './hooks/MyhooksReducer'
 
 const App = () => {
   return (
     <>
-    <Home/>
+    {/* <Home/> */}
+    {/* <img src={"./../public/images.png"} alt='hello' width={200}/>
+    <img src={Nshm} alt='hello' width={200}/> */}
+    <MyhooksReducer/>
     </>
   )
 }
