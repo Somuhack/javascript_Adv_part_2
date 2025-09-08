@@ -1,28 +1,25 @@
-import React from "react";
-import { useReducer } from "react";
-function Myreducer(state, action) {
-  switch (action.type) {
+import React,{useReducer} from 'react'
+function Addtocard(state,action){
+  switch(action.type){
     case "inc":
-      return (state += 1);
+      return state+=1
     case "dec":
-        return state-=1
-    case "incby10":
-        return state+=action.payload
+      return state==0?0:state-=1
+    case "byvalue":
+      return state+=action.payload
     default:
-      return state;
+      return state
   }
 }
-
 const MyhooksReducer = () => {
-  const [data, dispatch] = useReducer(Myreducer, 10);
+  const [data,dipatch]=useReducer(Addtocard,0)
   return (
-    <>
-      <div>MyhooksReducer:{data}</div>
-      <button onClick={() => dispatch({ type: "inc" })}>inc</button>
-      <button onClick={() => dispatch({ type: "dec" })}>Dec</button>
-      <button onClick={() => dispatch({ type: "incby10",payload:10 })}>Inc By 10</button>
+    <>MyhooksReducer:{data}
+    <button onClick={()=>dipatch({type:"inc"})}>inc</button>
+    <button onClick={()=>dipatch({type:"dec"})}>dec</button>
+    <button onClick={()=>dipatch({type:"byvalue",payload:10})}>byvalue</button>
     </>
-  );
-};
+  )
+}
 
-export default MyhooksReducer;
+export default MyhooksReducer

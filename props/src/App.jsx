@@ -29,7 +29,10 @@ import Home from './pages/Home'
 import React from 'react'
 import Nshm from "./assets/images.png"
 import MyhooksReducer from './hooks/MyhooksReducer'
-
+import MyuseRef from './hooks/MyuseRef'
+import MyuseMemo from './hooks/MyuseMemo'
+import MyuseCallback from './hooks/MyuseCallback'
+import MyuseEffect from './hooks/myuseEffect'
 const App = () => {
   return (
     <>
@@ -37,6 +40,10 @@ const App = () => {
     {/* <img src={"./../public/images.png"} alt='hello' width={200}/>
     <img src={Nshm} alt='hello' width={200}/> */}
     <MyhooksReducer/>
+    {/* <MyuseMemo/> */}
+    {/* <MyuseRef/> */}
+    {/* <MyuseCallback/> */}
+    {/* <MyuseEffect/> */}
     </>
   )
 }
